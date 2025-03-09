@@ -4,16 +4,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #222;
+    background-color: #808080; /* Fondo gris */
     color: white;
+    overflow: hidden;
+    position: relative;
 }
 
 .container {
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .roulette {
-    margin: 20px auto;
     width: 200px;
     height: 200px;
     border: 5px solid #fff;
@@ -24,6 +27,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     background-color: #333;
+    transition: transform 2s ease-out;
 }
 
 button {
@@ -39,4 +43,36 @@ button {
 
 button:hover {
     background-color: #e64a19;
+}
+
+/* Estilo para la lista de nombres a la derecha */
+#nameList {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#nameList h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+#nameList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nameList li {
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid white;
 }
