@@ -17,20 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para seleccionar un nivel al azar
-    function spinRoulette() {
-        if (levels.length === 0) {
-            roulette.textContent = "Cargando...";
-            return;
-        }
-        const randomIndex = Math.floor(Math.random() * levels.length);
-        const selected = levels[randomIndex];
+   function spinRoulette() {
+    if (levels.length === 0) {
+        roulette.textContent = "Cargando...";
+        return;
+    }
+    const randomIndex = Math.floor(Math.random() * levels.length);
+    const selected = levels[randomIndex];
+    
+    // Simulación de giro con animación
+    roulette.style.transform = `rotate(${360 * 5}deg)`; // 5 vueltas antes de detenerse
+
+    setTimeout(() => {
         roulette.textContent = selected;
         selectedLevel.textContent = `Nivel seleccionado: ${selected}`;
-    }
-
-    spinButton.addEventListener('click', spinRoulette);
-
-    // Obtener los niveles al cargar la página
-    fetchLevels();
-});
+        
+        // Agregar el nombre a la lista de la derecha
+        const listItem = document.createElement('li');
+        listItem.textContent = selected;
+        document.getElementById('levelList').appendChild(listItem);
+    }, 2000); // Coincide con la duración de la animación
+}
 
